@@ -1,7 +1,8 @@
 import React from "react";
-import "./UsersList.css";
 
 import UserItem from "./UserItem";
+import Card from "../../shared/components/UIElements/Card";
+import "./UsersList.css";
 
 const UsersList = ({ items }) => {
   //! Can also use normal JS and then return the JSX
@@ -31,7 +32,9 @@ const UsersList = ({ items }) => {
         </ul>
       ) : (
         <div className="center">
-          <h2>No users found.</h2>
+          <Card>
+            <h2>No users found.</h2>
+          </Card>
         </div>
       )}
     </div>
