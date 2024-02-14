@@ -1,11 +1,10 @@
-import React from 'react'
+import React from "react";
+import { CSSTransition } from "react-transition-group";
 
-import "./SideDrawer.css"
+import "./SideDrawer.css";
 
-const SideDrawer = () => {
-  return (
-    <div>SideDrawer</div>
-  )
-}
+const SideDrawer = (props) => {
+  return <aside className="side-drawer">{props.children}</aside>;
+};
 
-export default SideDrawer
+export default SideDrawer;
