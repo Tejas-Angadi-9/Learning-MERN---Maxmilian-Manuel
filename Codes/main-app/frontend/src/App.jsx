@@ -16,8 +16,8 @@ function App() {
   return (
     <Router>
       <MainNavigation />
+      {/* Here we just create the routes and this applies no changes in the UI*/}
       <main>
-        {/* Here we just create the routes */}
         <Routes>
           <Route path="/" Component={Users} />
           <Route path="/:userId/places" Component={UserPlaces} />
