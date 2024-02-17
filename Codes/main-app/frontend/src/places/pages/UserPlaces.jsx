@@ -36,15 +36,15 @@ const DUMMY_PLACES = [
 console.log(DUMMY_PLACES);
 
 const UserPlaces = () => {
-  console.log("Params: ", useParams());
+  // console.log("Params: ", useParams());
   const userId = useParams().userId;
-  console.log("User ID: ", userId);
+  // console.log("User ID: ", userId);
 
   const loadedPlaces = DUMMY_PLACES.filter(
     (place) => place.creatorId === userId
   );
 
-  console.log(loadedPlaces);
+  // console.log(loadedPlaces);
   return <PlaceList items={loadedPlaces} />;
 };
 

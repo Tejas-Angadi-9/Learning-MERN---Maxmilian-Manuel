@@ -6,6 +6,7 @@ const Button = (props) => {
   if (props.href) {
     return (
       <a
+        target="_blank"
         className={`button button--${props.size || "default"} ${
           props.inverse && "button--inverse"
         } ${props.danger && "button--danger"}`}
