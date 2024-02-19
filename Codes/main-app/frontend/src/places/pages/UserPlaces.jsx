@@ -29,7 +29,7 @@ const DUMMY_PLACES = [
       lat: 25.19742996863342,
       lng: 55.274333480622374,
     },
-    creatorId: "u2",
+    creatorId: "u1`",
   },
 ];
 

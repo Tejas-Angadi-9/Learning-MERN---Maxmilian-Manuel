@@ -1,0 +1,21 @@
+.place-form {
+  list-style: none;
+  margin: 0 auto;
+  padding: 1rem;
+  width: 90%;
+  max-width: 40rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  border-radius: 10px;
+  background: white;
+}
+
+.place-form textarea {
+  resize: none;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.place-form input {
+  padding: 15px;
+  border-radius: 10px;
+}

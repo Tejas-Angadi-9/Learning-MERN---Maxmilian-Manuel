@@ -21,7 +21,6 @@ const PlaceItem = (props) => {
           <h3>{props.address}</h3>
           <p>{props.description}</p>
           <div className="place-item__actions">
-            {/* https://www.google.com/maps?q=15.835756804654247,74.50525186688107 */}
             <Button
               inverse
               href={`https://www.google.com/maps?q=${props.coordinates.lat},${props.coordinates.lng}`}>
