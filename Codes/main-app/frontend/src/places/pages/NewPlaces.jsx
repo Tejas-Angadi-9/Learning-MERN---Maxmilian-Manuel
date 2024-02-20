@@ -1,4 +1,6 @@
+import { useReducer } from "react";
 import Input from "../../shared/components/FormElements/Input";
+import Button from "../../shared/components/FormElements/Button";
 
 import "./NewPlaces.css";
 
@@ -13,23 +15,10 @@ const NewPlaces = () => {
         }}>
         Add a new place
       </h1>
-      <form className="place-form">
+      <div className="place-form">
         {/* <label htmlFor=""></label> */}
-        <Input
-          element="input"
-          type="text"
-          label="Name"
-          placeholder="Enter the place name..."
-        />
-        <Input
-          element="textbox"
-          type="text"
-          label="Description"
-          placeholder="Add the description about this place..."
-          validators={[]}
-          errorText="Please enter a valid title"
-        />
-      </form>
+        <Input type="text" label="Name" placeholder="Enter the place name..." />
+      </div>
     </>
   );
 };

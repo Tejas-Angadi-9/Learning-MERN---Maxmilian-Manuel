@@ -1,68 +1,77 @@
 import { useReducer } from "react";
+
+import Button from "./Button";
 import "./Input.css";
 
-// We will define reducer function outside function as it doesn't depend on anything.
-const inputReducer = (state, action) => {
-  // Here we always have to return a new state
-  // Now, this is not required but will be using simple switch statment
+function reducer(state, action) {
   switch (action.type) {
-    case "CHANGE":
-      // here it doesn't have to be an object. It can be anything
+    case "TITLE":
       return {
-        // Now we will create a copy as we don't want to lose the previous
         ...state,
-        value: action.val,
-        isValid: true, // this will be replaced later. For now will set it to true
+        title: action.val,
       };
-    default:
-      return state;
+    case "DESC":
+      return {
+        ...state,
+        desc: action.val,
+      };
+    case "ADDRESS":
+      return {
+        ...state,
+        address: action.val,
+      };
   }
-};
+}
+
 const Input = (props) => {
-  // const [enteredValue, setEnteredValue] = useState("");
-  // const [isValid, setIsValid] = useState(false);
-  //! Instead of useState we will use useReducer which handles the complex state
-
-  // useReducer receives an action and dispatches it. With this we can send the second parameter with initialState
-  // Just like useState, useReducer also returns an array with exactly 2 elements
-  const [inputState, dispatch] = useReducer(inputReducer, {
-    value: "",
-    isValid: false,
+  const [inputState, dispatch] = useReducer(reducer, {
+    title: "",
+    desc: "",
+    address: "",
   });
-  const changeHandler = (event) => {
-    dispatch({ type: "CHANGE", val: event.target.value });
-  };
 
-  const element =
-    props.element === "input" ? (
+  return (
+    <form className={`form-control`}>
+      <label htmlFor={props.id}>Name</label>
       <input
         id={props.id}
         type={props.type}
-        placeholder={props.placeholder}
+        placeholder="Enter the place name"
         className="inp"
-        onChange={changeHandler}
-        value={inputState.value}
+        onChange={(e) => dispatch({ val: e.target.value, type: "TITLE" })}
+        value={inputState.title}
       />
-    ) : (
+      <label htmlFor={props.id}>Description</label>
       <textarea
         id={props.id}
         rows={props.rows || 5} // this || defines rows to 3 if props.rows is not available
         type={props.type}
-        placeholder={props.placeholder}
-        onChange={changeHandler}
-        value={inputState.value}
+        placeholder="Enter the description...."
+        value={inputState.desc}
+        onChange={(e) => dispatch({ val: e.target.value, type: "DESC" })}
       />
-    );
+      <label htmlFor={props.id}>Address</label>
+      <textarea
+        id={props.id}
+        rows={props.rows || 5} // this || defines rows to 3 if props.rows is not available
+        type={props.type}
+        placeholder="Enter the address"
+        value={inputState.address}
+        onChange={(e) => dispatch({ val: e.target.value, type: "ADDRESS" })}
+      />
 
-  return (
-    <div
-      className={`form-control ${
-        !inputReducer.isValid && `form-control--invalid`
-      }`}>
-      <label htmlFor={props.id}>{props.label}</label>
-      {element}
-      {!inputState.isValid && <p>{props.errorText}</p>}
-    </div>
+      <button
+        style={{ marginTop: "20px" }}
+        className={`button button--${props.size || "default"} ${
+          props.inverse && "button--inverse"
+        } ${props.danger && "button--danger"}`}
+        onClick={(e) => {
+          console.log(inputState);
+          e.preventDefault();
+        }}>
+        Add place
+      </button>
+    </form>
   );
 };
 

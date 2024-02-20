@@ -27,6 +27,15 @@ const Button = (props) => {
       </Link>
     );
   }
+  if (props.normal) {
+    <button
+      normal={props.normal}
+      className={`button button--${props.size || "default"} ${
+        props.inverse && "button--inverse"
+      } ${props.danger && "button--danger"}`}>
+      {props.children}
+    </button>;
+  }
   return (
     <button
       className={`button button--${props.size || "default"} ${

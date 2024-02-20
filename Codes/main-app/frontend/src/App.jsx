@@ -10,6 +10,7 @@ import Users from "./user/pages/Users";
 import NewPlaces from "./places/pages/NewPlaces";
 import UserPlaces from "./places/pages/UserPlaces";
 import MainNavigation from "./shared/components/Navigation/MainNavigation";
+import Auth from "./user/pages/Auth";
 import "./App.css";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path="/" Component={Users} />
           <Route path="/:userId/places" Component={UserPlaces} />
           <Route path="/places/new" Component={NewPlaces} />
+          <Route path="/auth" Component={Auth} />
           {/* <Redirect path="/" /> */}
         </Routes>
       </main>
