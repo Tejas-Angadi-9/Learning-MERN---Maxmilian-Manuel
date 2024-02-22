@@ -67,13 +67,17 @@ const Auth = (props) => {
             })}
           />
           <p>{errors.password?.message}</p>
-          {email?.includes("@") && password?.length > 5 ? (
+          
+          {(email?.includes("@") && password?.length > 5) || (!isLogin === true) ? (
+           
+            <>
             <button
               className={`button button--${props.size || "default"} ${
                 props.inverse && "button--inverse"
               } ${props.danger && "button--danger"}`}>
-              Login
+              {" " }{isLogin ? "Login" : "Sign up"}
             </button>
+                </>
           ) : (
             <button
               className={`button button--${props.size || "default"} ${
