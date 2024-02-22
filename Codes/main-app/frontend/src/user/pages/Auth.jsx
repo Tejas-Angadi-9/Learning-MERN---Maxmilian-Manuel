@@ -1,7 +1,5 @@
 import { useForm } from "react-hook-form";
 
-import Card from "../../shared/components/UIElements/Card";
-import Button from "../../shared/components/FormElements/Button";
 import { useState } from "react";
 
 const Auth = (props) => {
@@ -67,17 +65,18 @@ const Auth = (props) => {
             })}
           />
           <p>{errors.password?.message}</p>
-          
-          {(email?.includes("@") && password?.length > 5) || (!isLogin === true) ? (
-           
+
+          {(email?.includes("@") && password?.length > 5) ||
+          !isLogin === true ? (
             <>
-            <button
-              className={`button button--${props.size || "default"} ${
-                props.inverse && "button--inverse"
-              } ${props.danger && "button--danger"}`}>
-              {" " }{isLogin ? "Login" : "Sign up"}
-            </button>
-                </>
+              <button
+                className={`button button--${props.size || "default"} ${
+                  props.inverse && "button--inverse"
+                } ${props.danger && "button--danger"}`}>
+                {" "}
+                {isLogin ? "Login" : "Sign up"}
+              </button>
+            </>
           ) : (
             <button
               className={`button button--${props.size || "default"} ${
