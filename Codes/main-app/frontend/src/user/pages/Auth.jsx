@@ -1,7 +1,11 @@
 import { useForm } from "react-hook-form";
-
 import { useState } from "react";
 
+import { GoogleLogin } from "@react-oauth/google";
+import { GoogleOAuthProvider } from "@react-oauth/google";
+import GoogleAuthButton from "../components/GoogleAuthButton";
+
+<GoogleOAuthProvider clientId="<your_client_id>"></GoogleOAuthProvider>;
 const Auth = (props) => {
   const {
     register,
@@ -91,9 +95,11 @@ const Auth = (props) => {
               props.inverse && "button--inverse"
             } ${props.danger && "button--danger"}`}
             onClick={() => setIsLogin((prev) => !prev)}>
-            Switch to {isLogin ? "Sign up" : "login"}
+            Switch to {isLogin ? "Sign up" : "Login"}
           </button>
         </form>
+
+        <GoogleAuthButton />
       </div>
     </div>
   );
